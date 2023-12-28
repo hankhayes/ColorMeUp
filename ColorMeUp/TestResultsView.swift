@@ -23,19 +23,46 @@ struct TestResultsView: View {
         return amountCorrect
     }
     
+    var eyesightResult: String {
+        if amountCorrect > 9 {
+            return "normal"
+        } else if amountCorrect > 6 {
+            return "deficient"
+        } else {
+            return "severely deficient"
+        }
+    }
+    
+    var percentile: Int {
+        return 95
+    }
+    
     @State var answerText = "correct"
     
     var body: some View {
         VStack {
-            Text("Ishihara Test Results")
-                .font(.headline)
+            HStack {
+                Text("You have completed the Ishihara test")
+                    .font(.title)
+                    .padding()
+                Spacer()
+            }
+            // Spacer()
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Questions correct: \(amountCorrect) out of 12")
+                    Text("Your eyesight is \(eyesightResult)")
+                }
                 .padding()
-            Spacer()
-            Text("\(amountCorrect)")
-            Spacer()
-            Text("You scored in the 95th percentile!")
-                .font(.largeTitle)
-                .padding()
+                Spacer()
+            }
+            Button(action: {
+                print("share")
+            }, label: {
+                Text("Share results")
+            })
+            .padding()
+            .buttonStyle(.borderedProminent)
             Spacer()
         }
     }

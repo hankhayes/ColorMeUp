@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TestView: View {
     
-    @State var testQuestion: Int = 0
+    @State var testQuestion: Int = 1
     @State var guess: String = ""
     @State var next: SubmitLabel = .next
     @State var testFinished: Bool = false
@@ -18,9 +18,7 @@ struct TestView: View {
     @State var answers: [String] = ["", "", "", "", "", "", "", "", "", "", "", ""]
     
     var buttonOpacity: Double {
-        if testQuestion == 0 {
-            return 1.0
-        } else if (testQuestion > 0) && (testQuestion < 13) {
+        if testQuestion < 13 {
             return 0.0
         } else {
             return 1.0
@@ -35,29 +33,19 @@ struct TestView: View {
         }
     }
     
-    var buttonText: String {
-        if testQuestion == 0 {
-            return "Begin"
-        } else if (testQuestion > 0) && (testQuestion < 13) {
-            return "Hide"
-        } else {
-            return "See results"
-        }
-    }
-    
     var questionText: String {
         if testQuestion == 0 {
             return "Click below to begin!"
         } else if (testQuestion > 0) && (testQuestion < 13) {
             return "Question \(testQuestion) of 12"
         } else {
-            return ""
+            return "You have completed the test"
         }
     }
     
     var guessFieldOpacity: Double {
         if testQuestion == 0 {
-            return 0.0
+            return 1.0
         } else if (testQuestion > 0) && (testQuestion < 13) {
             return 1.0
         } else {
@@ -85,9 +73,8 @@ struct TestView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .padding()
-            Spacer()
             
-            TextField("guess", text: $guess)
+            TextField("What number do you see?", text: $guess)
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
                         Button(submitButtonText) {
@@ -107,22 +94,26 @@ struct TestView: View {
                                 testFinished = true
                             }
                         }
+                        Button("Hide") {
+                            guessIsFocused = false
+                        }
                     }
                 }
+                .multilineTextAlignment(.center)
                 .focused($guessIsFocused)
-                .frame(width: 100)
+                .frame(width: 300)
                 .padding(5)
                 .textFieldStyle(.roundedBorder)
                 .opacity(guessFieldOpacity)
                 .keyboardType(.numberPad)
-            VStack(spacing: 20) {
+            HStack {
                 Button(action: {
-                    testQuestion = 0
+                    testQuestion = 1
                     answers = ["", "", "", "", "", "", "", "", "", "", "", ""]
                 }, label: {
                     Text("Restart")
                 })
-                .buttonStyle(.borderless)
+                .buttonStyle(.borderedProminent)
                 .opacity(restartButtonOpacity)
                 Button(action: {
                     if testQuestion >= 12 {
@@ -130,18 +121,41 @@ struct TestView: View {
                     }
                     testQuestion += 1
                 }, label: {
-                    Text(buttonText)
+                    Text("See results")
                 })
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.bordered)
                 .opacity(buttonOpacity)
             }
-            .padding()
-            .ignoresSafeArea(.keyboard, edges: .bottom)
+            Spacer()
+            //                        VStack(spacing: 20) {
+            //                            Button(action: {
+            //                                testQuestion = 0
+            //                                answers = ["", "", "", "", "", "", "", "", "", "", "", ""]
+            //                            }, label: {
+            //                                Text("Restart")
+            //                            })
+            //                            .buttonStyle(.borderless)
+            //                            .opacity(restartButtonOpacity)
+            //                            Button(action: {
+            //                                if testQuestion >= 12 {
+            //                                    testFinished = true
+            //                                }
+            //                                testQuestion += 1
+            //                            }, label: {
+            //                                Text(buttonText)
+            //                            })
+            //                            .buttonStyle(.borderedProminent)
+            //                            .opacity(buttonOpacity)
+            //                        }
+            //                        .padding()
+            //                        Spacer()
         }
+        // .ignoresSafeArea(.keyboard, edges: .bottom)
         .sheet(isPresented: $testFinished, onDismiss: {
             print("hi")
         }, content: {
             TestResultsView(answers: $answers)
+                .presentationDetents([.height(300)])
         })
     }
 }

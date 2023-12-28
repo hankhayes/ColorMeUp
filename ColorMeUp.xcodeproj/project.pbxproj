@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3641EEEB2B3C8326007C6E9D /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3641EEEA2B3C8326007C6E9D /* SwiftUIView.swift */; };
 		3659F27D2B37ABEB000E9192 /* ColorMeUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F27C2B37ABEB000E9192 /* ColorMeUpApp.swift */; };
 		3659F27F2B37ABEB000E9192 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F27E2B37ABEB000E9192 /* ContentView.swift */; };
 		3659F2812B37ABEB000E9192 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F2802B37ABEB000E9192 /* Item.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3641EEEA2B3C8326007C6E9D /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		3659F2792B37ABEB000E9192 /* ColorMeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorMeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3659F27C2B37ABEB000E9192 /* ColorMeUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMeUpApp.swift; sourceTree = "<group>"; };
 		3659F27E2B37ABEB000E9192 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				3659F2982B37D603000E9192 /* MainView.swift */,
 				3659F29E2B37DA71000E9192 /* HomeView.swift */,
 				3659F2CB2B38BEFB000E9192 /* TestView.swift */,
+				3641EEEA2B3C8326007C6E9D /* SwiftUIView.swift */,
 				36D3D6922B3942FA008842B7 /* TestResultsView.swift */,
 				3659F2AC2B38A3C9000E9192 /* Capturing Photos */,
 				3659F2A02B37DB07000E9192 /* ViewController.swift */,
@@ -259,6 +262,7 @@
 				3659F2C72B38A3FA000E9192 /* DataModel.swift in Sources */,
 				3659F29D2B37D8CA000E9192 /* SettingsView.swift in Sources */,
 				3659F29B2B37D6E2000E9192 /* ProfileView.swift in Sources */,
+				3641EEEB2B3C8326007C6E9D /* SwiftUIView.swift in Sources */,
 				3659F2BC2B38A3FA000E9192 /* ViewfinderView.swift in Sources */,
 				3659F2C52B38A3FA000E9192 /* ThumbnailView.swift in Sources */,
 				3659F28D2B37AC00000E9192 /* ColorCard.swift in Sources */,
