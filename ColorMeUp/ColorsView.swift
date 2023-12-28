@@ -34,7 +34,7 @@ struct ColorsView: View {
                                 NavigationLink {
                                     ColorDetailView(color: color)
                                 } label: {
-                                    ColorCard(color: color)
+                                    ColorCard(colorName: "Azure Radiance", color: color)
                                         .padding(.bottom, 10)
                                 }
                             }
