@@ -64,9 +64,11 @@ struct TestView: View {
     var body: some View {
         VStack {
             Spacer()
+            
             Text("Ishihara Test")
                 .font(.title)
                 .padding()
+            
             Text(questionText)
             
             Image("Ishihara_\(testQuestion)")
@@ -127,30 +129,7 @@ struct TestView: View {
                 .opacity(buttonOpacity)
             }
             Spacer()
-            //                        VStack(spacing: 20) {
-            //                            Button(action: {
-            //                                testQuestion = 0
-            //                                answers = ["", "", "", "", "", "", "", "", "", "", "", ""]
-            //                            }, label: {
-            //                                Text("Restart")
-            //                            })
-            //                            .buttonStyle(.borderless)
-            //                            .opacity(restartButtonOpacity)
-            //                            Button(action: {
-            //                                if testQuestion >= 12 {
-            //                                    testFinished = true
-            //                                }
-            //                                testQuestion += 1
-            //                            }, label: {
-            //                                Text(buttonText)
-            //                            })
-            //                            .buttonStyle(.borderedProminent)
-            //                            .opacity(buttonOpacity)
-            //                        }
-            //                        .padding()
-            //                        Spacer()
         }
-        // .ignoresSafeArea(.keyboard, edges: .bottom)
         .sheet(isPresented: $testFinished, onDismiss: {
             print("hi")
         }, content: {
