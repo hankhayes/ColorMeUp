@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3641EEEB2B3C8326007C6E9D /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3641EEEA2B3C8326007C6E9D /* SwiftUIView.swift */; };
+		3641EEED2B3D02AB007C6E9D /* jssource.js in Resources */ = {isa = PBXBuildFile; fileRef = 3641EEEC2B3D02AB007C6E9D /* jssource.js */; };
 		3659F27D2B37ABEB000E9192 /* ColorMeUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F27C2B37ABEB000E9192 /* ColorMeUpApp.swift */; };
 		3659F27F2B37ABEB000E9192 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F27E2B37ABEB000E9192 /* ContentView.swift */; };
 		3659F2812B37ABEB000E9192 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F2802B37ABEB000E9192 /* Item.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		3641EEEA2B3C8326007C6E9D /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		3641EEEC2B3D02AB007C6E9D /* jssource.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = jssource.js; sourceTree = "<group>"; };
 		3659F2792B37ABEB000E9192 /* ColorMeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorMeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3659F27C2B37ABEB000E9192 /* ColorMeUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMeUpApp.swift; sourceTree = "<group>"; };
 		3659F27E2B37ABEB000E9192 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				3659F2902B37AD2C000E9192 /* DataService.swift */,
 				3659F28E2B37AC04000E9192 /* UserColor.swift */,
 				3659F2802B37ABEB000E9192 /* Item.swift */,
+				3641EEEC2B3D02AB007C6E9D /* jssource.js */,
 				3659F2822B37ABEC000E9192 /* Assets.xcassets */,
 				3659F2842B37ABEC000E9192 /* Preview Content */,
 			);
@@ -224,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3641EEED2B3D02AB007C6E9D /* jssource.js in Resources */,
 				3659F2862B37ABEC000E9192 /* Preview Assets.xcassets in Resources */,
 				3659F2832B37ABEC000E9192 /* Assets.xcassets in Resources */,
 			);
