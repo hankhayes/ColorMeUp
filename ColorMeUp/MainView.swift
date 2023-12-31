@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         TabView {
             TestView()
@@ -24,13 +27,13 @@ struct MainView: View {
                         Text("Colors")
                     }
                 }
-            HomeView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "camera")
-                        Text("Capture")
-                    }
-                }
+//            HomeView()
+//                .tabItem {
+//                    VStack {
+//                        Image(systemName: "camera")
+//                        Text("Capture")
+//                    }
+//                }
             ProfileView()
                 .tabItem {
                     VStack {

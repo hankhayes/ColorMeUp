@@ -6,16 +6,15 @@
 //
 
 import SwiftUI
+import Photos
 
 struct GetColorFromImageView: View {
     
     @State var colorName: String = ""
     
-    var image: UIImage
-    
     var body: some View {
         VStack {
-            Image(uiImage: image)
+            Image(systemName: "person")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             ColorPicker("Use the eyedropper", selection: Binding.constant(.red))
@@ -34,5 +33,5 @@ struct GetColorFromImageView: View {
 }
 
 #Preview {
-    GetColorFromImageView(image: UIImage(systemName: "person")!)
+    GetColorFromImageView()
 }

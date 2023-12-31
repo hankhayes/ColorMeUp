@@ -12,18 +12,11 @@ struct ColorsView: View {
     @State var colors = [UserColor]()
     var dataService = DataService()
     
-    @State var filters = ["red": false, "orange": false, "yellow": false, "green": false]
+    @State var filters = ["red": false, "orange": false, "yellow": false, "green": false, "blue": false, "purple": false]
     
     var body: some View {
         NavigationStack {
             VStack {
-                HStack {
-                    Text("Colors")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .padding(.horizontal)
-                    Spacer()
-                }
                 CategoryScroller(filters: $filters)
                     .padding(.horizontal)
                 ScrollView(showsIndicators: false) {
@@ -34,7 +27,7 @@ struct ColorsView: View {
                                 NavigationLink {
                                     ColorDetailView(color: color)
                                 } label: {
-                                    ColorCard(colorName: "Azure Radiance", color: color)
+                                    ColorCard(color: color)
                                         .padding(.bottom, 10)
                                 }
                             }
@@ -46,6 +39,7 @@ struct ColorsView: View {
             .onAppear {
                 colors = dataService.getColors()
             }
+            .navigationTitle("Colors")
         }
     }
 }

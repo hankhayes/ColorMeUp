@@ -10,7 +10,7 @@ import Foundation
 struct DataService {
     
     func getColors() -> [UserColor] {
-        return [UserColor(hex: "007AFF", date: Date(), note: "Bedroom wall", category: "red"), UserColor(hex: "FFFFFF", date: Date(), note: "Kitchen backsplash", category: "orange"), UserColor(hex: "000000", date: Date(), note: "Office wall", category: "yellow")]
+        print("got colors from DS")
+        return [UserColor(hex: "007AFF", date: Date(), note: "Bedroom wall"), UserColor(hex: "ff28a1", date: Date(), note: "Kitchen backsplash"), UserColor(hex: "e3ffb3", date: Date(), note: "Office wall")]
     }
-    
 }

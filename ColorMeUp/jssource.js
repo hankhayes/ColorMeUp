@@ -1,6 +1,3 @@
-var a = 10
-var text = a + 10
-
 var ntc = {
 
   init: function() {
@@ -84,7 +81,7 @@ var ntc = {
   },
 
   names: [
-["000000", "Black"],
+["000000", "Black"], // Start of blue
 ["000080", "Navy Blue"],
 ["0000C8", "Dark Blue"],
 ["0000FF", "Blue"],

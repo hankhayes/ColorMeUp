@@ -17,5 +17,5 @@ struct ColorDetailView: View {
 }
 
 #Preview {
-    ColorDetailView(color: UserColor(hex: "fafafa", date: Date(), note: "none", category: "Red"))
+    ColorDetailView(color: UserColor(hex: "fafafa", date: Date(), note: "none"))
 }

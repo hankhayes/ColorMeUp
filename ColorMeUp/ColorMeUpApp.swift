@@ -10,6 +10,9 @@ import SwiftData
 
 @main
 struct ColorMeUpApp: App {
+    
+    @AppStorage("isDarkMode") private var isDarkMode = false
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -26,6 +29,7 @@ struct ColorMeUpApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .preferredColorScheme(isDarkMode ? .dark : .light)
         }
         .modelContainer(sharedModelContainer)
     }
