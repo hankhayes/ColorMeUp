@@ -1,17 +1,19 @@
 //
-//  ColorsView.swift
+//  CollectionView.swift
 //  ColorMeUp
 //
-//  Created by Hank Hayes on 12/23/23.
+//  Created by Hank Hayes on 12/31/23.
 //
 
 import SwiftUI
+import SwiftData
 
-struct ColorsView: View {
+struct CollectionView: View {
     
-    @State var colors = [UserColor]()
-    var dataService = DataService()
+    let colorManager = ColorManager()
     
+    @Environment(\.modelContext) private var modelContext
+    @Query private var colors: [UserColor]
     @State var filters = ["red": false, "orange": false, "yellow": false, "green": false, "blue": false, "purple": false]
     
     var body: some View {
@@ -20,7 +22,7 @@ struct ColorsView: View {
                 CategoryScroller(filters: $filters)
                     .padding(.horizontal)
                 ScrollView(showsIndicators: false) {
-                    VStack() {
+                    VStack {
                         let valuesSequence = filters.values
                         ForEach(colors) { color in
                             if filters[color.category]! || valuesSequence.allSatisfy({$0 == false}) {
@@ -36,14 +38,11 @@ struct ColorsView: View {
                 }
                 .padding(.horizontal)
             }
-            .onAppear {
-                colors = dataService.getColors()
-            }
             .navigationTitle("Colors")
         }
     }
 }
 
 #Preview {
-    ColorsView(filters: [:])
+    CollectionView()
 }

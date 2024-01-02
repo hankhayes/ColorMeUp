@@ -7,50 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3641EEEB2B3C8326007C6E9D /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3641EEEA2B3C8326007C6E9D /* SwiftUIView.swift */; };
+		361ABF6A2B421576000C6F99 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361ABF692B421576000C6F99 /* CaptureView.swift */; };
+		361ABF6C2B4215D7000C6F99 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361ABF6B2B4215D7000C6F99 /* Photo.swift */; };
+		361ABF6E2B42256E000C6F99 /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361ABF6D2B42256E000C6F99 /* InformationCard.swift */; };
+		362ABBBE2B426EF5005D8391 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362ABBBD2B426EF5005D8391 /* CollectionView.swift */; };
 		3641EEED2B3D02AB007C6E9D /* jssource.js in Resources */ = {isa = PBXBuildFile; fileRef = 3641EEEC2B3D02AB007C6E9D /* jssource.js */; };
 		3659F27D2B37ABEB000E9192 /* ColorMeUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F27C2B37ABEB000E9192 /* ColorMeUpApp.swift */; };
-		3659F27F2B37ABEB000E9192 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F27E2B37ABEB000E9192 /* ContentView.swift */; };
-		3659F2812B37ABEB000E9192 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F2802B37ABEB000E9192 /* Item.swift */; };
 		3659F2832B37ABEC000E9192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3659F2822B37ABEC000E9192 /* Assets.xcassets */; };
 		3659F2862B37ABEC000E9192 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3659F2852B37ABEC000E9192 /* Preview Assets.xcassets */; };
 		3659F28D2B37AC00000E9192 /* ColorCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F28C2B37AC00000E9192 /* ColorCard.swift */; };
-		3659F28F2B37AC04000E9192 /* UserColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F28E2B37AC04000E9192 /* UserColor.swift */; };
-		3659F2912B37AD2C000E9192 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F2902B37AD2C000E9192 /* DataService.swift */; };
-		3659F2932B37AD5D000E9192 /* ColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F2922B37AD5D000E9192 /* ColorsView.swift */; };
 		3659F2952B37AF55000E9192 /* ColorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F2942B37AF55000E9192 /* ColorDetailView.swift */; };
 		3659F2972B37B70C000E9192 /* CategoryScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F2962B37B70C000E9192 /* CategoryScroller.swift */; };
 		3659F2992B37D603000E9192 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F2982B37D603000E9192 /* MainView.swift */; };
 		3659F29B2B37D6E2000E9192 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F29A2B37D6E2000E9192 /* ProfileView.swift */; };
 		3659F29D2B37D8CA000E9192 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F29C2B37D8CA000E9192 /* SettingsView.swift */; };
-		3659F2A12B37DB07000E9192 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F2A02B37DB07000E9192 /* ViewController.swift */; };
 		3659F2A32B37E36F000E9192 /* GetColorFromImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F2A22B37E36F000E9192 /* GetColorFromImageView.swift */; };
 		3659F2CC2B38BEFB000E9192 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F2CB2B38BEFB000E9192 /* TestView.swift */; };
+		3667715B2B43514900A13767 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3667715A2B43514900A13767 /* ColorManager.swift */; };
 		36D3D6932B3942FA008842B7 /* TestResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D3D6922B3942FA008842B7 /* TestResultsView.swift */; };
+		36D6FE932B4397B900757408 /* UserColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6FE922B4397B900757408 /* UserColor.swift */; };
+		36D6FE952B4398D800757408 /* ManualCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6FE942B4398D800757408 /* ManualCaptureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3641EEEA2B3C8326007C6E9D /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		361ABF692B421576000C6F99 /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
+		361ABF6B2B4215D7000C6F99 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		361ABF6D2B42256E000C6F99 /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
+		362ABBBD2B426EF5005D8391 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		362ABBBF2B427142005D8391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3641EEEC2B3D02AB007C6E9D /* jssource.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = jssource.js; sourceTree = "<group>"; };
 		3659F2792B37ABEB000E9192 /* ColorMeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorMeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3659F27C2B37ABEB000E9192 /* ColorMeUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMeUpApp.swift; sourceTree = "<group>"; };
-		3659F27E2B37ABEB000E9192 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3659F2802B37ABEB000E9192 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3659F2822B37ABEC000E9192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3659F2852B37ABEC000E9192 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3659F28C2B37AC00000E9192 /* ColorCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCard.swift; sourceTree = "<group>"; };
-		3659F28E2B37AC04000E9192 /* UserColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserColor.swift; sourceTree = "<group>"; };
-		3659F2902B37AD2C000E9192 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		3659F2922B37AD5D000E9192 /* ColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsView.swift; sourceTree = "<group>"; };
 		3659F2942B37AF55000E9192 /* ColorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailView.swift; sourceTree = "<group>"; };
 		3659F2962B37B70C000E9192 /* CategoryScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryScroller.swift; sourceTree = "<group>"; };
 		3659F2982B37D603000E9192 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3659F29A2B37D6E2000E9192 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3659F29C2B37D8CA000E9192 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		3659F2A02B37DB07000E9192 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3659F2A22B37E36F000E9192 /* GetColorFromImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetColorFromImageView.swift; sourceTree = "<group>"; };
 		3659F2CB2B38BEFB000E9192 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		3667715A2B43514900A13767 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		36D3D6922B3942FA008842B7 /* TestResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsView.swift; sourceTree = "<group>"; };
+		36D6FE922B4397B900757408 /* UserColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserColor.swift; sourceTree = "<group>"; };
+		36D6FE942B4398D800757408 /* ManualCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualCaptureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,24 +84,13 @@
 		3659F27B2B37ABEB000E9192 /* ColorMeUp */ = {
 			isa = PBXGroup;
 			children = (
+				362ABBBF2B427142005D8391 /* Info.plist */,
 				3659F27C2B37ABEB000E9192 /* ColorMeUpApp.swift */,
-				3659F27E2B37ABEB000E9192 /* ContentView.swift */,
-				3659F28C2B37AC00000E9192 /* ColorCard.swift */,
-				3659F2922B37AD5D000E9192 /* ColorsView.swift */,
-				3659F2982B37D603000E9192 /* MainView.swift */,
-				3659F2CB2B38BEFB000E9192 /* TestView.swift */,
-				3641EEEA2B3C8326007C6E9D /* SwiftUIView.swift */,
-				36D3D6922B3942FA008842B7 /* TestResultsView.swift */,
-				3659F2A02B37DB07000E9192 /* ViewController.swift */,
-				3659F2A22B37E36F000E9192 /* GetColorFromImageView.swift */,
-				3659F29A2B37D6E2000E9192 /* ProfileView.swift */,
-				3659F29C2B37D8CA000E9192 /* SettingsView.swift */,
-				3659F2962B37B70C000E9192 /* CategoryScroller.swift */,
-				3659F2942B37AF55000E9192 /* ColorDetailView.swift */,
-				3659F2902B37AD2C000E9192 /* DataService.swift */,
-				3659F28E2B37AC04000E9192 /* UserColor.swift */,
-				3659F2802B37ABEB000E9192 /* Item.swift */,
-				3641EEEC2B3D02AB007C6E9D /* jssource.js */,
+				36D6FE972B43D0B400757408 /* Components */,
+				36D6FE962B43CFA900757408 /* Models */,
+				36D6FE9A2B43D0F600757408 /* Views */,
+				36D6FE982B43D0D800757408 /* Services */,
+				36D6FE992B43D0E100757408 /* Scripts */,
 				3659F2822B37ABEC000E9192 /* Assets.xcassets */,
 				3659F2842B37ABEC000E9192 /* Preview Content */,
 			);
@@ -113,6 +103,58 @@
 				3659F2852B37ABEC000E9192 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		36D6FE962B43CFA900757408 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				36D6FE922B4397B900757408 /* UserColor.swift */,
+				361ABF6B2B4215D7000C6F99 /* Photo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		36D6FE972B43D0B400757408 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				361ABF6D2B42256E000C6F99 /* InformationCard.swift */,
+				3659F28C2B37AC00000E9192 /* ColorCard.swift */,
+				3659F2962B37B70C000E9192 /* CategoryScroller.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		36D6FE982B43D0D800757408 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3667715A2B43514900A13767 /* ColorManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		36D6FE992B43D0E100757408 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				3641EEEC2B3D02AB007C6E9D /* jssource.js */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		36D6FE9A2B43D0F600757408 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				36D6FE942B4398D800757408 /* ManualCaptureView.swift */,
+				362ABBBD2B426EF5005D8391 /* CollectionView.swift */,
+				3659F2982B37D603000E9192 /* MainView.swift */,
+				361ABF692B421576000C6F99 /* CaptureView.swift */,
+				3659F2CB2B38BEFB000E9192 /* TestView.swift */,
+				36D3D6922B3942FA008842B7 /* TestResultsView.swift */,
+				3659F2A22B37E36F000E9192 /* GetColorFromImageView.swift */,
+				3659F29A2B37D6E2000E9192 /* ProfileView.swift */,
+				3659F29C2B37D8CA000E9192 /* SettingsView.swift */,
+				3659F2942B37AF55000E9192 /* ColorDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,21 +232,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3659F27F2B37ABEB000E9192 /* ContentView.swift in Sources */,
-				3659F2812B37ABEB000E9192 /* Item.swift in Sources */,
 				3659F2CC2B38BEFB000E9192 /* TestView.swift in Sources */,
 				3659F27D2B37ABEB000E9192 /* ColorMeUpApp.swift in Sources */,
-				3659F2A12B37DB07000E9192 /* ViewController.swift in Sources */,
+				362ABBBE2B426EF5005D8391 /* CollectionView.swift in Sources */,
 				3659F2992B37D603000E9192 /* MainView.swift in Sources */,
 				36D3D6932B3942FA008842B7 /* TestResultsView.swift in Sources */,
-				3659F2912B37AD2C000E9192 /* DataService.swift in Sources */,
 				3659F2972B37B70C000E9192 /* CategoryScroller.swift in Sources */,
-				3659F28F2B37AC04000E9192 /* UserColor.swift in Sources */,
 				3659F2952B37AF55000E9192 /* ColorDetailView.swift in Sources */,
-				3659F2932B37AD5D000E9192 /* ColorsView.swift in Sources */,
+				361ABF6A2B421576000C6F99 /* CaptureView.swift in Sources */,
+				361ABF6E2B42256E000C6F99 /* InformationCard.swift in Sources */,
+				3667715B2B43514900A13767 /* ColorManager.swift in Sources */,
+				361ABF6C2B4215D7000C6F99 /* Photo.swift in Sources */,
 				3659F29D2B37D8CA000E9192 /* SettingsView.swift in Sources */,
 				3659F29B2B37D6E2000E9192 /* ProfileView.swift in Sources */,
-				3641EEEB2B3C8326007C6E9D /* SwiftUIView.swift in Sources */,
+				36D6FE932B4397B900757408 /* UserColor.swift in Sources */,
+				36D6FE952B4398D800757408 /* ManualCaptureView.swift in Sources */,
 				3659F28D2B37AC00000E9192 /* ColorCard.swift in Sources */,
 				3659F2A32B37E36F000E9192 /* GetColorFromImageView.swift in Sources */,
 			);
@@ -343,6 +385,7 @@
 				DEVELOPMENT_TEAM = 9NA6KM924Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ColorMeUp/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app will be using your camera";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app will be using your microphone";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app will be using your photo library";
@@ -375,6 +418,7 @@
 				DEVELOPMENT_TEAM = 9NA6KM924Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ColorMeUp/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app will be using your camera";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app will be using your microphone";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app will be using your photo library";

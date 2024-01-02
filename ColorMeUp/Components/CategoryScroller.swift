@@ -54,8 +54,6 @@ struct CategoryScroller: View {
                         .onChange(of: purpleSelected, {
                             filters["purple"]!.toggle()
                         })
-
-
                 }
             }
         }
