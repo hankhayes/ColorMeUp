@@ -10,21 +10,35 @@ import PhotosUI
 
 struct CaptureView: View {
     
-    @State var libraryIsShowing: Bool = false
+    @EnvironmentObject var appColor: AppColor
+    
     @State var manualCaptureIsShowing: Bool = false
     @State var recentPhotos: [UIImage] = [UIImage]()
     
+    // Library selction
+    @State var libraryIsShowing: Bool = false
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
+    @State private var didSelectImageFromLibrary: Bool = false
+    @State private var selectedLibraryImage: UIImage = UIImage()
+    
+    // Camera selection
+    @State var takenImage: UIImage = UIImage()
+    @State var didUseImageFromCamera: Bool = false
     
     var body: some View {
         NavigationStack {
             VStack {
-                InformationCard()
-                    .padding()
+                NavigationLink {
+                    InstructionsView()
+                } label: {
+                    InformationCard()
+                        .padding()
+                }
+                .buttonStyle(.plain)
                 HStack {
                     Text("Capture")
-                        .font(.largeTitle)
+                        .font(.title)
                         .fontWeight(.bold)
                         .padding()
                     Spacer()
@@ -39,25 +53,29 @@ struct CaptureView: View {
                                 Image(systemName: "photo.on.rectangle")
                                 Text("Library")
                             }
+                            .tint(appColor.tint)
                         }
                         .onChange(of: selectedItem) { newItem in
                             Task {
                                 // Retrieve selected asset in the form of Data
                                 if let data = try? await newItem?.loadTransferable(type: Data.self) {
                                     selectedImageData = data
+                                    selectedLibraryImage = UIImage(data: data)!
                                 }
                             }
                         }
                     Spacer()
-                    Button(action: {
-                        print(selectedImageData)
-                    }, label: {
+                    NavigationLink {
+                        CameraView(takenImage: $takenImage, didUseImage: $didUseImageFromCamera)
+                            .toolbar(.hidden)
+                    } label: {
                         VStack {
                             Image(systemName: "camera")
                             Text("Camera")
                         }
+                        .tint(appColor.tint)
                         .padding()
-                    })
+                    }
                     .background {
                         Circle()
                             .fill(.myGray)
@@ -72,13 +90,14 @@ struct CaptureView: View {
                             Image(systemName: "plus")
                             Text("Manual")
                         }
+                        .tint(appColor.tint)
                     })
                     Spacer()
                 }
                 .padding()
                 HStack {
                     Text("Library")
-                        .font(.largeTitle)
+                        .font(.title)
                         .fontWeight(.bold)
                         .padding()
                     Spacer()
@@ -116,12 +135,23 @@ struct CaptureView: View {
                 }
                 Spacer()
             }
-            .navigationTitle("Home")
             .sheet(isPresented: $manualCaptureIsShowing, onDismiss: {
                 manualCaptureIsShowing = false
             }) {
                 ManualCaptureView()
+                    .presentationDetents([.fraction(0.3)])
             }
+            .sheet(isPresented: $didUseImageFromCamera, onDismiss: {
+                didUseImageFromCamera = false
+            }, content: {
+                GetColorFromImageView(takenImage: $takenImage)
+            })
+            .sheet(isPresented: $didSelectImageFromLibrary, onDismiss: {
+                didSelectImageFromLibrary = false
+            }, content: {
+                GetColorFromImageView(takenImage: $selectedLibraryImage)
+            })
+            .navigationTitle("Home")
         }
     }
     
@@ -150,7 +180,6 @@ struct CaptureView: View {
                 }
             }
         }
-        
         // Call the completion handler with the array of recent photos
         completion(recentPhotos)
     }

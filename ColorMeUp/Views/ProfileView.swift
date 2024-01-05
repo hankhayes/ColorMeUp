@@ -8,25 +8,31 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    @EnvironmentObject var appColor: AppColor
+    
     var body: some View {
-        VStack {
-            Image(systemName: "person.fill")
-            Text("Hank Hayes")
-                .font(.title)
-            VStack(spacing: 20) {
-                Button(action: {
-                    print("2")
-                }, label: {
-                    Text("Upgrade to Pro")
-                })
-                .buttonStyle(.bordered)
-                Button(action: {
-                    print("3")
-                }, label: {
-                    Text("Log Out")
-                })
-                .buttonStyle(.bordered)
-                .foregroundColor(.red)
+        NavigationStack {
+            VStack {
+                Image(systemName: "person.fill")
+                Text("Hank Hayes")
+                    .font(.title)
+                VStack(spacing: 20) {
+                    Button(action: {
+                        print("2")
+                    }, label: {
+                        Text("Upgrade to Pro")
+                    })
+                    .tint(appColor.tint)
+                    .buttonStyle(.bordered)
+                    Button(action: {
+                        print("3")
+                    }, label: {
+                        Text("Log Out")
+                    })
+                    .buttonStyle(.bordered)
+                    .foregroundColor(.red)
+                }
             }
         }
     }

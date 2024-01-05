@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TestView: View {
     
+    @EnvironmentObject var appColor: AppColor
+    
     @State var testQuestion: Int = 1
     @State var guess: String = ""
     @State var next: SubmitLabel = .next

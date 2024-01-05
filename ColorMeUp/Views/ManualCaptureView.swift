@@ -18,40 +18,46 @@ struct ManualCaptureView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ColorPicker("Select a color", selection: $selectedColor, supportsOpacity: false)
                 HStack {
-                    Text("Notes")
+                    Text("Manual Capture")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
                     Spacer()
-                    TextField("What is this color for?", text: $colorNote)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
-                Button(action: {
-                    let hex = colorManager.getHex(color: selectedColor)
-                    let category = colorManager.getCategory(hex: hex)
-                    let name = colorManager.getName(hex: hex)
-                    let whiteText = colorManager.getTextColor(hex: hex)
-                    
-                    let newColor = UserColor(
-                        name: name,
-                        hex: hex,
-                        category: category,
-                        date: Date(),
-                        note: colorNote,
-                        whiteText: whiteText
-                    )
-                    modelContext.insert(newColor)
-                }, label: {
+                VStack(spacing: 20) {
+                    ColorPicker("Select a color", selection: $selectedColor, supportsOpacity: false)
+                    HStack {
+                        Text("Notes")
+                        Spacer()
+                        TextField("What is this color for?", text: $colorNote)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    // This button takes the color currently selected in the ColorPicker and creates a new UserColor based on the user's input
+                    Button(action: {
+                        let hex = colorManager.getHex(color: selectedColor)
+                        let category = colorManager.getCategory(hex: hex)
+                        let name = colorManager.getName(hex: hex)
+                        let whiteText = colorManager.getTextColor(hex: hex)
+                        
+                        let newColor = UserColor(
+                            name: name,
+                            hex: hex,
+                            category: category,
+                            date: Date(),
+                            note: colorNote,
+                            whiteText: whiteText
+                        )
+                        modelContext.insert(newColor)
+                    }, label: {
                         Text("Save")
-                            .padding()
                     })
-                
+                    .buttonStyle(.borderedProminent)
+                }
             }
             .padding()
         }
-        .navigationTitle("Capture")
     }
 }
-
 
 #Preview {
     ManualCaptureView()

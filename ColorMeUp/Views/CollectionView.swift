@@ -12,6 +12,7 @@ struct CollectionView: View {
     
     let colorManager = ColorManager()
     
+    @EnvironmentObject var appColor: AppColor
     @Environment(\.modelContext) private var modelContext
     @Query private var colors: [UserColor]
     @State var filters = ["red": false, "orange": false, "yellow": false, "green": false, "blue": false, "purple": false]
@@ -19,8 +20,16 @@ struct CollectionView: View {
     var body: some View {
         NavigationStack {
             VStack {
+//                HStack {
+//                    Text("Colors")
+//                        .font(.largeTitle)
+//                        .fontWeight(.bold)
+//                    Spacer()
+//                }
+//                .padding(.horizontal)
                 CategoryScroller(filters: $filters)
                     .padding(.horizontal)
+                    .tint(appColor.tint)
                 ScrollView(showsIndicators: false) {
                     VStack {
                         let valuesSequence = filters.values

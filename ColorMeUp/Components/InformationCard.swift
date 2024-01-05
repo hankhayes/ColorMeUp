@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct InformationCard: View {
+    
+    @EnvironmentObject var appColor: AppColor
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -15,16 +18,18 @@ struct InformationCard: View {
                 .cornerRadius(15)
             VStack(alignment: .leading) {
                 HStack {
-                    Image(systemName: "info")
-                        .foregroundColor(.blue)
                     Text("Quick Start")
                         .fontWeight(.bold)
-                        .foregroundStyle(.blue)
                     Spacer()
+                    Text("Read more")
+                        .font(.subheadline)
+                    Image(systemName: "info.circle")
+                        .imageScale(.small)
                 }
-                .padding(.bottom, 6)
+                .foregroundStyle(appColor.tint)
+                .padding(.bottom, 1)
                 Text("Click one of the options below to capture a new color. You can select a color from a photo, take a new photo, or add a color manually!")
-                    .multilineTextAlignment(.leading) // Set text alignment
+                    .multilineTextAlignment(.leading)
                 Spacer()
             }
             .padding()

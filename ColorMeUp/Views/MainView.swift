@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @EnvironmentObject var appColor: AppColor
+    
+    @State private var selection: Int = 3
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             TestView()
                 .tabItem {
                     VStack {
@@ -17,6 +22,7 @@ struct MainView: View {
                         Text("Test")
                     }
                 }
+                .tag(1)
             CollectionView()
                 .tabItem {
                     VStack {
@@ -24,13 +30,15 @@ struct MainView: View {
                         Text("Colors")
                     }
                 }
+                .tag(2)
             CaptureView()
                 .tabItem {
                     VStack {
-                        Image(systemName: "camera")
-                        Text("Capture")
+                        Image(systemName: "house")
+                        Text("Home")
                     }
                 }
+                .tag(3)
             ProfileView()
                 .tabItem {
                     VStack {
@@ -38,6 +46,7 @@ struct MainView: View {
                         Text("Profile")
                     }
                 }
+                .tag(4)
             SettingsView()
                 .tabItem {
                     VStack {
@@ -45,7 +54,10 @@ struct MainView: View {
                         Text("Settings")
                     }
                 }
+                .tag(5)
         }
+        .background(.myGray)
+        .tint(appColor.tint)
     }
 }
 

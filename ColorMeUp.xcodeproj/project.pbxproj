@@ -12,6 +12,9 @@
 		361ABF6E2B42256E000C6F99 /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361ABF6D2B42256E000C6F99 /* InformationCard.swift */; };
 		362ABBBE2B426EF5005D8391 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362ABBBD2B426EF5005D8391 /* CollectionView.swift */; };
 		3641EEED2B3D02AB007C6E9D /* jssource.js in Resources */ = {isa = PBXBuildFile; fileRef = 3641EEEC2B3D02AB007C6E9D /* jssource.js */; };
+		3655E5592B4464E500AB6399 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655E5582B4464E500AB6399 /* CameraView.swift */; };
+		3655E55B2B44D5BB00AB6399 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655E55A2B44D5BB00AB6399 /* InstructionsView.swift */; };
+		3655E55D2B45CE0500AB6399 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655E55C2B45CE0500AB6399 /* AppColor.swift */; };
 		3659F27D2B37ABEB000E9192 /* ColorMeUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3659F27C2B37ABEB000E9192 /* ColorMeUpApp.swift */; };
 		3659F2832B37ABEC000E9192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3659F2822B37ABEC000E9192 /* Assets.xcassets */; };
 		3659F2862B37ABEC000E9192 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3659F2852B37ABEC000E9192 /* Preview Assets.xcassets */; };
@@ -36,6 +39,9 @@
 		362ABBBD2B426EF5005D8391 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		362ABBBF2B427142005D8391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3641EEEC2B3D02AB007C6E9D /* jssource.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = jssource.js; sourceTree = "<group>"; };
+		3655E5582B4464E500AB6399 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		3655E55A2B44D5BB00AB6399 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
+		3655E55C2B45CE0500AB6399 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		3659F2792B37ABEB000E9192 /* ColorMeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorMeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3659F27C2B37ABEB000E9192 /* ColorMeUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMeUpApp.swift; sourceTree = "<group>"; };
 		3659F2822B37ABEC000E9192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 		36D6FE962B43CFA900757408 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3655E55C2B45CE0500AB6399 /* AppColor.swift */,
 				36D6FE922B4397B900757408 /* UserColor.swift */,
 				361ABF6B2B4215D7000C6F99 /* Photo.swift */,
 			);
@@ -143,10 +150,12 @@
 		36D6FE9A2B43D0F600757408 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3655E55A2B44D5BB00AB6399 /* InstructionsView.swift */,
 				36D6FE942B4398D800757408 /* ManualCaptureView.swift */,
 				362ABBBD2B426EF5005D8391 /* CollectionView.swift */,
 				3659F2982B37D603000E9192 /* MainView.swift */,
 				361ABF692B421576000C6F99 /* CaptureView.swift */,
+				3655E5582B4464E500AB6399 /* CameraView.swift */,
 				3659F2CB2B38BEFB000E9192 /* TestView.swift */,
 				36D3D6922B3942FA008842B7 /* TestResultsView.swift */,
 				3659F2A22B37E36F000E9192 /* GetColorFromImageView.swift */,
@@ -232,9 +241,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3655E55B2B44D5BB00AB6399 /* InstructionsView.swift in Sources */,
+				3655E55D2B45CE0500AB6399 /* AppColor.swift in Sources */,
 				3659F2CC2B38BEFB000E9192 /* TestView.swift in Sources */,
 				3659F27D2B37ABEB000E9192 /* ColorMeUpApp.swift in Sources */,
 				362ABBBE2B426EF5005D8391 /* CollectionView.swift in Sources */,
+				3655E5592B4464E500AB6399 /* CameraView.swift in Sources */,
 				3659F2992B37D603000E9192 /* MainView.swift in Sources */,
 				36D3D6932B3942FA008842B7 /* TestResultsView.swift in Sources */,
 				3659F2972B37B70C000E9192 /* CategoryScroller.swift in Sources */,
