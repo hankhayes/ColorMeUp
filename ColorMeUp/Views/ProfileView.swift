@@ -50,6 +50,7 @@ struct ProfileView: View {
             }, label: {
                 Text("Credits")
             })
+            .padding(.bottom)
             .sheet(isPresented: $creditsAreShowing, onDismiss: {
                 creditsAreShowing = false
             }, content: {

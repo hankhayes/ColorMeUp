@@ -36,13 +36,13 @@ struct ColorCard: View {
                         Text("#\(color.hex)")
                             .font(.subheadline)
                         Spacer()
-                        Text(color.note)
+                        Text(color.category)
                             .font(.subheadline)
                     }
                     Text(color.name)
                         .font(.title)
                     HStack {
-                        Text("September 10")
+                        Text(color.note)
                             .font(.subheadline)
                         Spacer()
                     }

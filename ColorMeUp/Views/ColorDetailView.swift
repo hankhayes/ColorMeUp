@@ -25,18 +25,16 @@ struct ColorDetailView: View {
     }
     
     var body: some View {
-        HStack {
+        VStack {
             VStack {
                 HStack {
                     Text("#\(color.hex)")
-                        .font(.largeTitle)
                     Spacer()
+                    Text(color.category)
                 }
                 HStack {
-                    Text("""
-                            "\(color.name)"
-                            """)
-                    .font(.headline)
+                    Text(color.name)
+                    .font(.title)
                     Spacer()
                 }
                 HStack {
@@ -53,15 +51,6 @@ struct ColorDetailView: View {
             }
             .padding()
             Spacer()
-            VStack {
-                HStack {
-                    Spacer()
-                    Text(color.category)
-                        .font(.subheadline)
-                }
-                Spacer()
-            }
-            .padding()
         }
         .foregroundColor(textColor)
         .background(colorManager.getColor(hex: color.hex))

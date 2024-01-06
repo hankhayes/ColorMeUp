@@ -10,7 +10,6 @@ import SwiftUI
 struct CreditsView: View {
     var body: some View {
         NavigationStack {
-            
             VStack {
                 HStack {
                     Text("Credits")
@@ -18,7 +17,8 @@ struct CreditsView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }
-                .padding(.vertical)
+                .padding(.top)
+                .padding(.bottom, 1)
                 HStack {
                     Text("Created and designed by The Puma Pod")
                         .foregroundStyle(.secondary)

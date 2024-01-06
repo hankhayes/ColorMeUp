@@ -118,7 +118,7 @@ The Test tab allows you to take the Ishihara Test, which is a common colorblindn
     """)
                     Spacer()
                     }
-                    .padding(.horizontal)
+                    .padding([.horizontal, .bottom])
                     .multilineTextAlignment(.leading)
                 }
             }

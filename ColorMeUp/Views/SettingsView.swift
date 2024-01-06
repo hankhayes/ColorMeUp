@@ -49,28 +49,7 @@ struct SettingsView: View {
                             .foregroundColor(.secondary)
                         }
                     }
-                    Section("Account") {
-                        HStack {
-                            Text("Email")
-                            Spacer()
-                            Button(action: {
-                                print()
-                            }, label: {
-                                Text("Change")
-                            })
-                        }
-                        HStack {
-                            Text("Password")
-                            Spacer()
-                            Button(action: {
-                                print()
-                            }, label: {
-                                Text("Change")
-                            })
-                        }
-                    }
                 }
-                
             }
             .navigationTitle("Settings")
         }
