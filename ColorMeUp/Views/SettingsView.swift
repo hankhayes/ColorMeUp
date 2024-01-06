@@ -9,8 +9,11 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    // User Defaults
     @AppStorage ("isDarkMode") private var isDarkMode = false
     @AppStorage ("visionType") private var visionType = 0
+    
+    // Environment
     @EnvironmentObject var appColor: AppColor
     
     var body: some View {
@@ -22,41 +25,28 @@ struct SettingsView: View {
                             Text("Dark mode")
                             Spacer()
                             Toggle("", isOn: $isDarkMode)
-                                .tint(appColor.tint)
                         }
                         HStack {
                             Text("Vision type")
                             Spacer()
                             Picker("", selection: $visionType) {
                                 Text("No color-blindness").tag(0)
-                                Text("Deuteranomaly").tag(1)
-                                Text("Protanomaly").tag(2)
-                                Text("Protanopia").tag(3)
-                                Text("Deuteranopia").tag(4)
-                                Text("Tritanomaly").tag(5)
-                                Text("Tritanopia").tag(6)
+                                Text("Red-Green Colorblind").tag(1)
+                                Text("Blue-Yellow Colorblind").tag(2)
                             }
                             .onChange(of: visionType) {
                                 switch visionType {
                                 case 0:
-                                    appColor.tint = .red
-                                case 1:
-                                    appColor.tint = .orange
-                                case 2:
-                                    appColor.tint = .yellow
-                                case 3:
-                                    appColor.tint = .green
-                                case 4:
                                     appColor.tint = .blue
-                                case 5:
-                                    appColor.tint = .purple
-                                case 6:
-                                    appColor.tint = .indigo
+                                case 1:
+                                    appColor.tint = .blue
+                                case 2:
+                                    appColor.tint = .red
                                 default:
                                     print()
                                 }
                             }
-                            .tint(appColor.tint)
+                            .foregroundColor(.secondary)
                         }
                     }
                     Section("Account") {
@@ -67,7 +57,6 @@ struct SettingsView: View {
                                 print()
                             }, label: {
                                 Text("Change")
-                                    .tint(appColor.tint)
                             })
                         }
                         HStack {
@@ -77,12 +66,11 @@ struct SettingsView: View {
                                 print()
                             }, label: {
                                 Text("Change")
-                                    .tint(appColor.tint)
                             })
                         }
                     }
                 }
-
+                
             }
             .navigationTitle("Settings")
         }

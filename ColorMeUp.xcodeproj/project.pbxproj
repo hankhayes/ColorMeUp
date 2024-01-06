@@ -11,6 +11,7 @@
 		361ABF6C2B4215D7000C6F99 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361ABF6B2B4215D7000C6F99 /* Photo.swift */; };
 		361ABF6E2B42256E000C6F99 /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361ABF6D2B42256E000C6F99 /* InformationCard.swift */; };
 		362ABBBE2B426EF5005D8391 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362ABBBD2B426EF5005D8391 /* CollectionView.swift */; };
+		363F3C742B49F3630012BDC7 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363F3C732B49F3630012BDC7 /* CreditsView.swift */; };
 		3641EEED2B3D02AB007C6E9D /* jssource.js in Resources */ = {isa = PBXBuildFile; fileRef = 3641EEEC2B3D02AB007C6E9D /* jssource.js */; };
 		3655E5592B4464E500AB6399 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655E5582B4464E500AB6399 /* CameraView.swift */; };
 		3655E55B2B44D5BB00AB6399 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655E55A2B44D5BB00AB6399 /* InstructionsView.swift */; };
@@ -30,6 +31,7 @@
 		36D3D6932B3942FA008842B7 /* TestResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D3D6922B3942FA008842B7 /* TestResultsView.swift */; };
 		36D6FE932B4397B900757408 /* UserColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6FE922B4397B900757408 /* UserColor.swift */; };
 		36D6FE952B4398D800757408 /* ManualCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6FE942B4398D800757408 /* ManualCaptureView.swift */; };
+		36F32D622B48AB410085AACE /* IshiharaInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F32D612B48AB410085AACE /* IshiharaInformationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,7 @@
 		361ABF6D2B42256E000C6F99 /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		362ABBBD2B426EF5005D8391 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		362ABBBF2B427142005D8391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		363F3C732B49F3630012BDC7 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		3641EEEC2B3D02AB007C6E9D /* jssource.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = jssource.js; sourceTree = "<group>"; };
 		3655E5582B4464E500AB6399 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		3655E55A2B44D5BB00AB6399 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		36D3D6922B3942FA008842B7 /* TestResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsView.swift; sourceTree = "<group>"; };
 		36D6FE922B4397B900757408 /* UserColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserColor.swift; sourceTree = "<group>"; };
 		36D6FE942B4398D800757408 /* ManualCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualCaptureView.swift; sourceTree = "<group>"; };
+		36F32D612B48AB410085AACE /* IshiharaInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IshiharaInformationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +164,9 @@
 				36D3D6922B3942FA008842B7 /* TestResultsView.swift */,
 				3659F2A22B37E36F000E9192 /* GetColorFromImageView.swift */,
 				3659F29A2B37D6E2000E9192 /* ProfileView.swift */,
+				363F3C732B49F3630012BDC7 /* CreditsView.swift */,
 				3659F29C2B37D8CA000E9192 /* SettingsView.swift */,
+				36F32D612B48AB410085AACE /* IshiharaInformationView.swift */,
 				3659F2942B37AF55000E9192 /* ColorDetailView.swift */,
 			);
 			path = Views;
@@ -242,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3655E55B2B44D5BB00AB6399 /* InstructionsView.swift in Sources */,
+				363F3C742B49F3630012BDC7 /* CreditsView.swift in Sources */,
 				3655E55D2B45CE0500AB6399 /* AppColor.swift in Sources */,
 				3659F2CC2B38BEFB000E9192 /* TestView.swift in Sources */,
 				3659F27D2B37ABEB000E9192 /* ColorMeUpApp.swift in Sources */,
@@ -259,6 +266,7 @@
 				3659F29B2B37D6E2000E9192 /* ProfileView.swift in Sources */,
 				36D6FE932B4397B900757408 /* UserColor.swift in Sources */,
 				36D6FE952B4398D800757408 /* ManualCaptureView.swift in Sources */,
+				36F32D622B48AB410085AACE /* IshiharaInformationView.swift in Sources */,
 				3659F28D2B37AC00000E9192 /* ColorCard.swift in Sources */,
 				3659F2A32B37E36F000E9192 /* GetColorFromImageView.swift in Sources */,
 			);

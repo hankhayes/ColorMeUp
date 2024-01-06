@@ -9,6 +9,7 @@ import SwiftUI
 
 class AppColor: ObservableObject {
     
+    // Runs updateTint() when the "visionType" user default is changed
     @AppStorage("visionType") private var visionType: Int = 0 {
         didSet {
             updateTint()
@@ -24,21 +25,13 @@ class AppColor: ObservableObject {
     private func updateTint() {
         switch visionType {
         case 0:
-            tint = .red
-        case 1:
-            tint = .orange
-        case 2:
-            tint = .yellow
-        case 3:
-            tint = .green
-        case 4:
             tint = .blue
-        case 5:
-            tint = .purple
-        case 6:
-            tint = .indigo
+        case 1:
+            tint = .blue
+        case 2:
+            tint = .red
         default:
-            print()
+            tint = .blue
         }
     }
 }

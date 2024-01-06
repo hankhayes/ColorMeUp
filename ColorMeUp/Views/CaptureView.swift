@@ -10,10 +10,11 @@ import PhotosUI
 
 struct CaptureView: View {
     
-    @EnvironmentObject var appColor: AppColor
-    
     @State var manualCaptureIsShowing: Bool = false
     @State var recentPhotos: [UIImage] = [UIImage]()
+    
+    // Library scroller selection
+    @State private var didSelectImageFromLibraryScroller: Bool = false
     
     // Library selction
     @State var libraryIsShowing: Bool = false
@@ -32,7 +33,7 @@ struct CaptureView: View {
                 NavigationLink {
                     InstructionsView()
                 } label: {
-                    InformationCard()
+                    InformationCard(title: "Quick Start", info: "Click one of the options below to capture a new color. You can select a color from a photo, take a new photo, or add a color manually!", readMore: true)
                         .padding()
                 }
                 .buttonStyle(.plain)
@@ -53,7 +54,7 @@ struct CaptureView: View {
                                 Image(systemName: "photo.on.rectangle")
                                 Text("Library")
                             }
-                            .tint(appColor.tint)
+                            // .tint(appColor.tint)
                         }
                         .onChange(of: selectedItem) { newItem in
                             Task {
@@ -61,6 +62,7 @@ struct CaptureView: View {
                                 if let data = try? await newItem?.loadTransferable(type: Data.self) {
                                     selectedImageData = data
                                     selectedLibraryImage = UIImage(data: data)!
+                                    didSelectImageFromLibrary = true
                                 }
                             }
                         }
@@ -73,7 +75,7 @@ struct CaptureView: View {
                             Image(systemName: "camera")
                             Text("Camera")
                         }
-                        .tint(appColor.tint)
+                        // .tint(appColor.tint)
                         .padding()
                     }
                     .background {
@@ -90,7 +92,7 @@ struct CaptureView: View {
                             Image(systemName: "plus")
                             Text("Manual")
                         }
-                        .tint(appColor.tint)
+                        // .tint(appColor.tint)
                     })
                     Spacer()
                 }
@@ -110,12 +112,30 @@ struct CaptureView: View {
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 200, height: 200)
                                 .cornerRadius(10)
+                                .onTapGesture {
+                                    selectedLibraryImage = photo
+                                    didSelectImageFromLibraryScroller = true
+                                }
                         }
-                        Button(action: {
-                            print("action")
-                        }, label: {
-                            Text("See all")
-                        })
+                        PhotosPicker(
+                            selection: $selectedItem,
+                            matching: .images,
+                            photoLibrary: .shared()) {
+                                VStack {
+                                    Text("See all")
+                                }
+                                // .tint(appColor.tint)
+                            }
+                            .onChange(of: selectedItem) { newItem in
+                                Task {
+                                    // Retrieve selected asset in the form of Data
+                                    if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                        selectedImageData = data
+                                        selectedLibraryImage = UIImage(data: data)!
+                                        didSelectImageFromLibrary = true
+                                    }
+                                }
+                            }
                         .frame(width: 200, height: 200)
                         .buttonStyle(.bordered)
                     }
@@ -151,6 +171,11 @@ struct CaptureView: View {
             }, content: {
                 GetColorFromImageView(takenImage: $selectedLibraryImage)
             })
+            .sheet(isPresented: $didSelectImageFromLibraryScroller, onDismiss: {
+                didSelectImageFromLibraryScroller = false
+            }, content: {
+                GetColorFromImageView(takenImage: $selectedLibraryImage)
+            })
             .navigationTitle("Home")
         }
     }
@@ -174,7 +199,7 @@ struct CaptureView: View {
             let options = PHImageRequestOptions()
             options.isSynchronous = true
             
-            PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 300, height: 300), contentMode: .aspectFit, options: options) { image, _ in
+            PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 1000, height: 1000), contentMode: .aspectFit, options: options) { image, _ in
                 if let image = image {
                     recentPhotos.append(image)
                 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TestView: View {
     
-    @EnvironmentObject var appColor: AppColor
+    // @EnvironmentObject var appColor: AppColor
     
     @State var testQuestion: Int = 1
     @State var guess: String = ""
@@ -64,80 +64,93 @@ struct TestView: View {
     }
     
     var body: some View {
-        VStack {
-            Spacer()
-            
-            Text("Ishihara Test")
-                .font(.title)
-                .padding()
-            
-            Text(questionText)
-            
-            Image("Ishihara_\(testQuestion)")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding()
-            
-            TextField("What number do you see?", text: $guess)
-                .toolbar {
-                    ToolbarItemGroup(placement: .keyboard) {
-                        Button(submitButtonText) {
-                            if testQuestion < 12 {
-                                print("submitted")
-                                answers[testQuestion - 1] = guess
-                                print(answers)
-                                guess = ""
-                                testQuestion += 1
-                            } else {
-                                print("submitted")
-                                answers[testQuestion - 1] = guess
-                                print(answers)
-                                guess = ""
-                                testQuestion += 1
+        NavigationStack {
+            VStack {
+                Spacer()
+                
+                Text("Ishihara Test")
+                    .font(.title)
+                    .padding()
+                
+                Text(questionText)
+                
+                Image("Ishihara_\(testQuestion)")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding()
+                
+                TextField("What number do you see?", text: $guess)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .keyboard) {
+                            Button(submitButtonText) {
+                                if testQuestion < 12 {
+                                    print("submitted")
+                                    answers[testQuestion - 1] = guess
+                                    print(answers)
+                                    guess = ""
+                                    testQuestion += 1
+                                } else {
+                                    print("submitted")
+                                    answers[testQuestion - 1] = guess
+                                    print(answers)
+                                    guess = ""
+                                    testQuestion += 1
+                                    guessIsFocused = false
+                                    testFinished = true
+                                }
+                            }
+                            Button("Hide") {
                                 guessIsFocused = false
-                                testFinished = true
                             }
                         }
-                        Button("Hide") {
-                            guessIsFocused = false
+                    }
+                    .multilineTextAlignment(.center)
+                    .focused($guessIsFocused)
+                    .frame(width: 300)
+                    .padding(5)
+                    .textFieldStyle(.roundedBorder)
+                    .opacity(guessFieldOpacity)
+                    .keyboardType(.numberPad)
+                HStack {
+                    Button(action: {
+                        testQuestion = 1
+                        answers = ["", "", "", "", "", "", "", "", "", "", "", ""]
+                    }, label: {
+                        Text("Restart")
+                    })
+                    .buttonStyle(.borderedProminent)
+                    .opacity(restartButtonOpacity)
+                    Button(action: {
+                        if testQuestion >= 12 {
+                            testFinished = true
                         }
-                    }
+                        testQuestion += 1
+                    }, label: {
+                        Text("See results")
+                    })
+                    .buttonStyle(.bordered)
+                    .opacity(buttonOpacity)
                 }
-                .multilineTextAlignment(.center)
-                .focused($guessIsFocused)
-                .frame(width: 300)
-                .padding(5)
-                .textFieldStyle(.roundedBorder)
-                .opacity(guessFieldOpacity)
-                .keyboardType(.numberPad)
-            HStack {
-                Button(action: {
-                    testQuestion = 1
-                    answers = ["", "", "", "", "", "", "", "", "", "", "", ""]
-                }, label: {
-                    Text("Restart")
-                })
-                .buttonStyle(.borderedProminent)
-                .opacity(restartButtonOpacity)
-                Button(action: {
-                    if testQuestion >= 12 {
-                        testFinished = true
-                    }
-                    testQuestion += 1
-                }, label: {
-                    Text("See results")
-                })
-                .buttonStyle(.bordered)
-                .opacity(buttonOpacity)
+                Spacer()
             }
-            Spacer()
+            .sheet(isPresented: $testFinished, onDismiss: {
+                print("hi")
+            }, content: {
+                TestResultsView(answers: $answers)
+                    .presentationDetents([.height(300)])
+            })
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                // Add the action you want to perform when the button is tapped
+                print("Button tapped!")
+            }) {
+                NavigationLink(destination: IshiharaInformationView()) {
+                    Image(systemName: "info.circle")
+                        // .tint(appColor.tint)
+                }
+            }
+            )
         }
-        .sheet(isPresented: $testFinished, onDismiss: {
-            print("hi")
-        }, content: {
-            TestResultsView(answers: $answers)
-                .presentationDetents([.height(300)])
-        })
     }
 }
 

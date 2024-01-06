@@ -13,7 +13,6 @@ struct ColorMeUpApp: App {
     
     @AppStorage("isDarkMode") private var isDarkMode = false
     @AppStorage ("visionType") private var visionType = 0
-    
     @ObservedObject var appColor = AppColor()
     
     var sharedModelContainer: ModelContainer = {
@@ -32,8 +31,6 @@ struct ColorMeUpApp: App {
     init() {
         let appearance = UITabBarAppearance()
         appearance.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
-        // appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: appColor.tint]
-
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
     }
@@ -43,7 +40,6 @@ struct ColorMeUpApp: App {
             MainView()
                 .preferredColorScheme(isDarkMode ? .dark : .light)
                 .environmentObject(AppColor())
-                // .accentColor(appColor.tint)
         }
         .modelContainer(sharedModelContainer)
     }

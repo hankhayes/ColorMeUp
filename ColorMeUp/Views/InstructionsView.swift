@@ -29,6 +29,8 @@ struct InstructionsView: View {
                     .padding(.horizontal)
                     .multilineTextAlignment(.leading)
                 }
+                InformationCard(title: "Proof of Concept", info: "This app is a proof of concept. Some features (user login and pro version) are not fully implemented, as they are not the main focus of this product.", readMore: false)
+                    .padding()
                 // Test
                 VStack {
                     HStack {
@@ -40,7 +42,7 @@ struct InstructionsView: View {
                     .padding([.horizontal, .top])
                     HStack {
                         Text("""
-The Test tab allows you to take the Ishihara Test, which is a common colorblindness tset. You likely already know whether or not you are colorblind, but the test is there for fun or to share with friends.
+The Test tab allows you to take the Ishihara Test, which is a common colorblindness tset. You likely already know whether or not you are colorblind, but the test is there for fun or to share with friends. This tab also provides information about the origin and purpose of the test.
 """)
                     Spacer()
                     }

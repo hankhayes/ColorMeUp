@@ -9,13 +9,23 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @EnvironmentObject var appColor: AppColor
+    @State var creditsAreShowing: Bool = false
     
     var body: some View {
         NavigationStack {
+            Spacer()
             VStack {
-                Image(systemName: "person.fill")
-                Text("Hank Hayes")
+                Image("timcook")
+                    .resizable()
+                    .frame(width: 160, height: 160)
+                    .cornerRadius(100)
+                    .shadow(radius: 6)
+                    .overlay {
+                        Circle()
+                            .stroke(lineWidth: 6)
+                            .foregroundColor(.white)
+                    }
+                Text("Tim Cook")
                     .font(.title)
                 VStack(spacing: 20) {
                     Button(action: {
@@ -23,7 +33,6 @@ struct ProfileView: View {
                     }, label: {
                         Text("Upgrade to Pro")
                     })
-                    .tint(appColor.tint)
                     .buttonStyle(.bordered)
                     Button(action: {
                         print("3")
@@ -31,9 +40,22 @@ struct ProfileView: View {
                         Text("Log Out")
                     })
                     .buttonStyle(.bordered)
-                    .foregroundColor(.red)
                 }
             }
+            Spacer()
+            Text("Version 1.0")
+                .foregroundStyle(.secondary)
+            Button(action: {
+                creditsAreShowing = true
+            }, label: {
+                Text("Credits")
+            })
+            .sheet(isPresented: $creditsAreShowing, onDismiss: {
+                creditsAreShowing = false
+            }, content: {
+                CreditsView()
+                    .presentationDetents([.medium])
+            })
         }
     }
 }

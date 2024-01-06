@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CategoryScroller: View {
     
+    // Variables
     @State var redSelected = false
     @State var orangeSelected = false
     @State var yellowSelected = false
@@ -16,7 +17,7 @@ struct CategoryScroller: View {
     @State var blueSelected = false
     @State var purpleSelected = false
     
-    
+    // Struct arguments
     @Binding var filters: [String: Bool]
     
     var body: some View {

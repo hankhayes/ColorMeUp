@@ -10,37 +10,33 @@ import SwiftData
 
 struct CollectionView: View {
     
-    let colorManager = ColorManager()
+    // ColorManager is a custom class that makes a variety of calculations relating to the UserColor class
+    var colorManager = ColorManager()
     
-    @EnvironmentObject var appColor: AppColor
+    // SwiftData
     @Environment(\.modelContext) private var modelContext
     @Query private var colors: [UserColor]
+    
+    // Variables
     @State var filters = ["red": false, "orange": false, "yellow": false, "green": false, "blue": false, "purple": false]
+    @State var selectedColor: UserColor?
+    @State var colorCardWasSelected: Bool = false
     
     var body: some View {
         NavigationStack {
             VStack {
-//                HStack {
-//                    Text("Colors")
-//                        .font(.largeTitle)
-//                        .fontWeight(.bold)
-//                    Spacer()
-//                }
-//                .padding(.horizontal)
                 CategoryScroller(filters: $filters)
                     .padding(.horizontal)
-                    .tint(appColor.tint)
                 ScrollView(showsIndicators: false) {
                     VStack {
                         let valuesSequence = filters.values
                         ForEach(colors) { color in
                             if filters[color.category]! || valuesSequence.allSatisfy({$0 == false}) {
-                                NavigationLink {
-                                    ColorDetailView(color: color)
-                                } label: {
-                                    ColorCard(color: color)
-                                        .padding(.bottom, 10)
-                                }
+                                ColorCard(color: color)
+                                    .padding(.bottom, 10)
+                                    .onTapGesture {
+                                        selectedColor = color
+                                    }
                             }
                         }
                     }
@@ -48,6 +44,15 @@ struct CollectionView: View {
                 .padding(.horizontal)
             }
             .navigationTitle("Colors")
+            .onChange(of: selectedColor) {
+                colorCardWasSelected = true
+            }
+            .sheet(isPresented: $colorCardWasSelected, onDismiss: {
+                colorCardWasSelected = false
+            }, content: {
+                ColorDetailView(color: selectedColor!)
+                    .presentationDetents([.medium, .large])
+            })
         }
     }
 }

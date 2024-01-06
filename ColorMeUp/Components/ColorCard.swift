@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ColorCard: View {
     
-    var color: UserColor
+    // ColorManager is a custom class that makes a variety of calculations relating to the UserColor class
     var colorManager = ColorManager()
+    
+    // Struct arguments
+    var color: UserColor
+    
+    // Variables
     var textColor: Color {
         if color.whiteText {
             return Color.white
