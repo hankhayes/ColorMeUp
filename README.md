@@ -14,6 +14,6 @@ ColorMeUp is a tool for colorblind designers and individuals to capture colors i
 
 Data is stored locally and the only permissions needed are to access the Camera and Photo Library.
 ## Proof of Concept
-> This app is a proof of concept. Some features (user login and pro version) are not fully implemented, as they are not the main focus of this product.
+This app is a proof of concept. Some features (user login and pro version) are not fully implemented, as they are not the main focus of this product.
 ## Contact
 hankhayes@utexas.edu
