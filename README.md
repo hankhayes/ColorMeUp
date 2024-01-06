@@ -13,8 +13,6 @@ ColorMeUp is a tool for colorblind designers and individuals to capture colors i
 - iOS Deployment target: `17.0`
 
 Data is stored locally and the only permissions needed are to access the Camera and Photo Library.
-
-> Registering as a new user will give you "member" privileges, so you will not be able to do things like create announcements or events.
 ## Proof of Concept
 > This app is a proof of concept. Some features (user login and pro version) are not fully implemented, as they are not the main focus of this product.
 ## Contact
