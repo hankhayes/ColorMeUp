@@ -9,10 +9,12 @@ import SwiftUI
 
 struct InformationCard: View {
     
+    // Variables
     var title: String
     var info: String
     var readMore: Bool
-    
+
+    // This variable determines whether or not the information card should have a "read more" button
     var readMoreColor: Color {
         if readMore {
             return Color.accentColor

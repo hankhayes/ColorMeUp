@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct CollectionView: View {
-    
     // ColorManager is a custom class that makes a variety of calculations relating to the UserColor class
     var colorManager = ColorManager()
     
@@ -18,7 +17,7 @@ struct CollectionView: View {
     @Query private var colors: [UserColor]
     
     // Variables
-    @State var filters = ["red": false, "orange": false, "yellow": false, "green": false, "blue": false, "purple": false]
+    @State var filters = ["red": false, "orange": false, "yellow": false, "green": false, "blue": false, "purple": false, "gray": false, "pink": false]
     @State var selectedColor: UserColor?
     @State var colorCardWasSelected: Bool = false
     

@@ -1,3 +1,4 @@
+// This function finds the most accurate name for a given color
 var ntc = {
 
   init: function() {

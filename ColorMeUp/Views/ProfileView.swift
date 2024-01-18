@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    
+    // Indicates whether or not the CreditsView is showing
     @State var creditsAreShowing: Bool = false
     
     var body: some View {
@@ -45,6 +45,7 @@ struct ProfileView: View {
             Spacer()
             Text("Version 1.0")
                 .foregroundStyle(.secondary)
+            // This button triggers a sheet that presents CreditsView
             Button(action: {
                 creditsAreShowing = true
             }, label: {

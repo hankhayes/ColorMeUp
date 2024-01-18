@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct MainView: View {
-    
+    // Environment
     @EnvironmentObject var appColor: AppColor
     
+    // Variables
     @State private var selection: Int = 3
     
     var body: some View {

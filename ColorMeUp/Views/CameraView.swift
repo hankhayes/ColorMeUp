@@ -11,6 +11,8 @@ import SwiftUI
 
 struct CameraView: UIViewControllerRepresentable {
     
+    // This is mostly borrowed code from another implementation
+    
     typealias UIViewControllerType = UIImagePickerController
     
     @Binding var takenImage: UIImage
@@ -25,7 +27,7 @@ struct CameraView: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-
+        return
     }
     
     func makeCoordinator() -> CameraView.Coordinator {
@@ -48,7 +50,6 @@ extension CameraView {
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                // UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                 parent.takenImage = image
                 parent.didUseImage = true
                 parent.presentationMode.wrappedValue.dismiss()

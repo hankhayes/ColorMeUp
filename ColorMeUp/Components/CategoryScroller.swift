@@ -16,6 +16,8 @@ struct CategoryScroller: View {
     @State var greenSelected = false
     @State var blueSelected = false
     @State var purpleSelected = false
+    @State var pinkSelected = false
+    @State var graySelected = false
     
     // Struct arguments
     @Binding var filters: [String: Bool]
@@ -25,6 +27,11 @@ struct CategoryScroller: View {
             Text("Filter by:")
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack() {
+                    Toggle("Gray", isOn: $graySelected)
+                        .toggleStyle(.button)
+                        .onChange(of: graySelected, {
+                            filters["gray"]!.toggle()
+                        })
                     Toggle("Red", isOn: $redSelected)
                         .toggleStyle(.button)
                         .onChange(of: redSelected, {
@@ -54,6 +61,11 @@ struct CategoryScroller: View {
                         .toggleStyle(.button)
                         .onChange(of: purpleSelected, {
                             filters["purple"]!.toggle()
+                        })
+                    Toggle("Pink", isOn: $pinkSelected)
+                        .toggleStyle(.button)
+                        .onChange(of: pinkSelected, {
+                            filters["pink"]!.toggle()
                         })
                 }
             }

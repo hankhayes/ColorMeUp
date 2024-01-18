@@ -1,13 +1,13 @@
 //
-//  GetColorFromImageView.swift
+//  GetColorFromCameraImage.swift
 //  ColorMeUp
 //
-//  Created by Hank Hayes on 12/23/23.
+//  Created by Hank Hayes on 01/09/23.
 //
 
 import SwiftUI
 
-struct GetColorFromImageView: View {
+struct GetColorFromCameraImage: View {
     // SwiftData
     @Environment(\.modelContext) private var modelContext
     
@@ -15,10 +15,10 @@ struct GetColorFromImageView: View {
     @State var colorNote: String = ""
     @State var selectedColor: Color = .red
     
-    // Tied to variables in CaptureView
+    // Binded primarily to variables in CaptureView
     @Binding var takenImage: UIImage
     @Binding var showAlert: Bool
-    @Binding var didSelectImageFromLibrary: Bool
+    @Binding var didUseImagefromCamera: Bool
     
     // ColorManager is a custom class that makes a variety of calculations relating to the UserColor class
     let colorManager = ColorManager()
@@ -58,8 +58,8 @@ struct GetColorFromImageView: View {
                         whiteText: whiteText
                     )
                     modelContext.insert(newColor)
+                    didUseImagefromCamera = false
                     showAlert = true
-                    didSelectImageFromLibrary = false
                 }, label: {
                     Text("Save")
                         .padding()
@@ -72,5 +72,5 @@ struct GetColorFromImageView: View {
 }
 
 #Preview {
-    GetColorFromImageView(takenImage: Binding.constant(UIImage()), showAlert: Binding.constant(true), didSelectImageFromLibrary: Binding.constant(false))
+    GetColorFromCameraImage(takenImage: Binding.constant(UIImage()), showAlert: Binding.constant(true), didUseImagefromCamera: Binding.constant(true))
 }

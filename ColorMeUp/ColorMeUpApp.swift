@@ -11,10 +11,13 @@ import SwiftData
 @main
 struct ColorMeUpApp: App {
     
+    // User defaults
     @AppStorage("isDarkMode") private var isDarkMode = false
     @AppStorage ("visionType") private var visionType = 0
+    
     @ObservedObject var appColor = AppColor()
     
+    // Swift Data
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             UserColor.self,

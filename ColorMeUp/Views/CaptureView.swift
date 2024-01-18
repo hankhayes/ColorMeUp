@@ -9,9 +9,10 @@ import SwiftUI
 import PhotosUI
 
 struct CaptureView: View {
-    
     @State var manualCaptureIsShowing: Bool = false
+    @State var showAlert: Bool = false
     @State var recentPhotos: [UIImage] = [UIImage]()
+    @State var alertIsPresented: Bool = false
     
     // Library scroller selection
     @State private var didSelectImageFromLibraryScroller: Bool = false
@@ -35,6 +36,7 @@ struct CaptureView: View {
                 } label: {
                     InformationCard(title: "Quick Start", info: "Click one of the options below to capture a new color. You can select a color from a photo, take a new photo, or add a color manually!", readMore: true)
                         .padding()
+                        .ignoresSafeArea(.keyboard, edges: .bottom)
                 }
                 .buttonStyle(.plain)
                 HStack {
@@ -47,14 +49,13 @@ struct CaptureView: View {
                 HStack{
                     Spacer()
                     PhotosPicker(
-                        selection: $selectedItem, 
+                        selection: $selectedItem,
                         matching: .images,
                         photoLibrary: .shared()) {
                             VStack {
                                 Image(systemName: "photo.on.rectangle")
                                 Text("Library")
                             }
-                            // .tint(appColor.tint)
                         }
                         .onChange(of: selectedItem) { newItem in
                             Task {
@@ -75,7 +76,6 @@ struct CaptureView: View {
                             Image(systemName: "camera")
                             Text("Camera")
                         }
-                        // .tint(appColor.tint)
                         .padding()
                     }
                     .background {
@@ -92,7 +92,6 @@ struct CaptureView: View {
                             Image(systemName: "plus")
                             Text("Manual")
                         }
-                        // .tint(appColor.tint)
                     })
                     Spacer()
                 }
@@ -114,7 +113,7 @@ struct CaptureView: View {
                                 .cornerRadius(10)
                                 .onTapGesture {
                                     selectedLibraryImage = photo
-                                    didSelectImageFromLibraryScroller = true
+                                    didSelectImageFromLibrary = true
                                 }
                         }
                         PhotosPicker(
@@ -124,7 +123,6 @@ struct CaptureView: View {
                                 VStack {
                                     Text("See all")
                                 }
-                                // .tint(appColor.tint)
                             }
                             .onChange(of: selectedItem) { newItem in
                                 Task {
@@ -136,8 +134,8 @@ struct CaptureView: View {
                                     }
                                 }
                             }
-                        .frame(width: 200, height: 200)
-                        .buttonStyle(.bordered)
+                            .frame(width: 200, height: 200)
+                            .buttonStyle(.bordered)
                     }
                 }
                 .frame(height: 200)
@@ -157,26 +155,45 @@ struct CaptureView: View {
             }
             .sheet(isPresented: $manualCaptureIsShowing, onDismiss: {
                 manualCaptureIsShowing = false
+                if showAlert {
+                    alertIsPresented = true
+                    showAlert = false
+                }
             }) {
-                ManualCaptureView()
-                    .presentationDetents([.fraction(0.3)])
+                ManualCaptureView(showAlert: $showAlert, manualCaptureIsShowing: $manualCaptureIsShowing)
+                    .presentationDetents([.large])
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
             }
             .sheet(isPresented: $didUseImageFromCamera, onDismiss: {
                 didUseImageFromCamera = false
+                if showAlert {
+                    alertIsPresented = true
+                    showAlert = false
+                }
+                didUseImageFromCamera = false
             }, content: {
-                GetColorFromImageView(takenImage: $takenImage)
+                GetColorFromCameraImage(takenImage: $takenImage, showAlert: $showAlert, didUseImagefromCamera: $didUseImageFromCamera)
             })
             .sheet(isPresented: $didSelectImageFromLibrary, onDismiss: {
+                if showAlert {
+                    alertIsPresented = true
+                    showAlert = false
+                }
                 didSelectImageFromLibrary = false
             }, content: {
-                GetColorFromImageView(takenImage: $selectedLibraryImage)
+                GetColorFromImageView(takenImage: $selectedLibraryImage, showAlert: $showAlert, didSelectImageFromLibrary: $didSelectImageFromLibrary)
             })
-            .sheet(isPresented: $didSelectImageFromLibraryScroller, onDismiss: {
-                didSelectImageFromLibraryScroller = false
-            }, content: {
-                GetColorFromImageView(takenImage: $selectedLibraryImage)
-            })
+            .alert(isPresented: $alertIsPresented) {
+                Alert(
+                    title: Text("Color Added"),
+                    message: Text("You have successfully added a color to your collection."),
+                    dismissButton: .default(Text("OK")) {
+                        alertIsPresented = false
+                    }
+                )
+            }
             .navigationTitle("Home")
+            .ignoresSafeArea(.keyboard, edges: .bottom)
         }
     }
     

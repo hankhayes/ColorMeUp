@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct TestResultsView: View {
-    
+    // Binded primarily to TestView
     @Binding var answers: [String]
+    
+    // Variables
+    @State var answerText = "correct"
     
     var correctAnswers: [String] = ["74", "6", "16", "2", "29", "7", "45", "5", "97", "8", "42", "3"]
     
+    // Stores the number of correct user answers
     var amountCorrect: Int {
         var amountCorrect = 0
         for number in Range(0...11) {
@@ -23,6 +27,7 @@ struct TestResultsView: View {
         return amountCorrect
     }
     
+    // Gets a result based on amountCorrect
     var eyesightResult: String {
         if amountCorrect > 9 {
             return "normal"
@@ -33,12 +38,6 @@ struct TestResultsView: View {
         }
     }
     
-    var percentile: Int {
-        return 95
-    }
-    
-    @State var answerText = "correct"
-    
     var body: some View {
         VStack {
             HStack {
@@ -47,7 +46,6 @@ struct TestResultsView: View {
                     .padding()
                 Spacer()
             }
-            // Spacer()
             HStack {
                 VStack(alignment: .leading) {
                     Text("Questions correct: \(amountCorrect) out of 12")

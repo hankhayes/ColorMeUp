@@ -8,12 +8,19 @@
 import SwiftUI
 
 struct ManualCaptureView: View {
-    
+    // Environment
     @Environment(\.modelContext) private var modelContext
+    
+    // ColorManager is a custom class that makes a variety of calculations relating to the UserColor class
     let colorManager = ColorManager()
     
+    // Variables
     @State var selectedColor: Color = .red
     @State var colorNote: String = ""
+    
+    // These are primarily binded to CaptureView
+    @Binding var showAlert: Bool
+    @Binding var manualCaptureIsShowing: Bool
     
     var body: some View {
         NavigationStack {
@@ -38,7 +45,6 @@ struct ManualCaptureView: View {
                         let category = colorManager.getCategory(hex: hex)
                         let name = colorManager.getName(hex: hex)
                         let whiteText = colorManager.getTextColor(hex: hex)
-                        
                         let newColor = UserColor(
                             name: name,
                             hex: hex,
@@ -48,6 +54,8 @@ struct ManualCaptureView: View {
                             whiteText: whiteText
                         )
                         modelContext.insert(newColor)
+                        manualCaptureIsShowing = false
+                        showAlert = true
                     }, label: {
                         Text("Save")
                     })
@@ -55,10 +63,11 @@ struct ManualCaptureView: View {
                 }
             }
             .padding()
+            Spacer()
         }
     }
 }
 
 #Preview {
-    ManualCaptureView()
+    ManualCaptureView(showAlert: Binding.constant(false), manualCaptureIsShowing: Binding.constant(true))
 }

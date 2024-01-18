@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct ColorDetailView: View {
-    
     // ColorManager is a custom class that makes a variety of calculations relating to the UserColor class
     var colorManager = ColorManager()
-
+    
     // Struct arguments
     var color: UserColor
     
@@ -34,7 +33,7 @@ struct ColorDetailView: View {
                 }
                 HStack {
                     Text(color.name)
-                    .font(.title)
+                        .font(.title)
                     Spacer()
                 }
                 HStack {

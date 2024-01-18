@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct TestView: View {
-    
-    // @EnvironmentObject var appColor: AppColor
-    
+    // Variables
     @State var testQuestion: Int = 1
     @State var guess: String = ""
     @State var next: SubmitLabel = .next
     @State var testFinished: Bool = false
     @FocusState var guessIsFocused: Bool
-    
     @State var answers: [String] = ["", "", "", "", "", "", "", "", "", "", "", ""]
     
+    // Determines whether buttons are visibile or not
     var buttonOpacity: Double {
         if testQuestion < 13 {
             return 0.0
@@ -27,6 +25,7 @@ struct TestView: View {
         }
     }
     
+    // Determines whether buttons are visibile or not
     var restartButtonOpacity: Double {
         if testQuestion < 13 {
             return 0.0
@@ -35,6 +34,7 @@ struct TestView: View {
         }
     }
     
+    // Sets the question # text based on the current question
     var questionText: String {
         if testQuestion == 0 {
             return "Click below to begin!"
@@ -45,6 +45,7 @@ struct TestView: View {
         }
     }
     
+    // Determines whether or not the guess field is visible
     var guessFieldOpacity: Double {
         if testQuestion == 0 {
             return 1.0
@@ -54,6 +55,7 @@ struct TestView: View {
             return 0.0
         }
     }
+    
     
     var submitButtonText: String {
         if testQuestion < 12 {
@@ -67,18 +69,14 @@ struct TestView: View {
         NavigationStack {
             VStack {
                 Spacer()
-                
                 Text("Ishihara Test")
                     .font(.title)
                     .padding()
-                
                 Text(questionText)
-                
                 Image("Ishihara_\(testQuestion)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .padding()
-                
                 TextField("What number do you see?", text: $guess)
                     .toolbar {
                         ToolbarItemGroup(placement: .keyboard) {
@@ -141,12 +139,10 @@ struct TestView: View {
             })
             .navigationBarItems(trailing:
                                     Button(action: {
-                // Add the action you want to perform when the button is tapped
                 print("Button tapped!")
             }) {
                 NavigationLink(destination: IshiharaInformationView()) {
                     Image(systemName: "info.circle")
-                        // .tint(appColor.tint)
                 }
             }
             )

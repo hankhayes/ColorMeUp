@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
     // User Defaults
     @AppStorage ("isDarkMode") private var isDarkMode = false
     @AppStorage ("visionType") private var visionType = 0
@@ -46,7 +45,6 @@ struct SettingsView: View {
                                     print()
                                 }
                             }
-                            .foregroundColor(.secondary)
                         }
                     }
                 }
