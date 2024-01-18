@@ -1,5 +1,6 @@
 # ColorMeUp
-Built by Hank Hayes
+Designed by the Puma Pod
+Developed by Hank Hayes
 ## Table of contents
 1. About
 2. Dependencies
